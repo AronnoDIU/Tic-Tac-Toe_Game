@@ -115,7 +115,31 @@ public class TicTacToe {
         }
 
         // Check for tie - if there are no empty spaces left on the board
-        boolean boardFull = true;
+        boolean boardFull = true; // flag for checking if the board is full
+        // Check if there are any empty spaces left on the board
+        // If there are, then the board is not full and the game has not ended yet
+        // If there aren't, then the game has ended in a tie
+        // If there are any empty spaces, set boardFull to false and break out of the loop
+        // Otherwise, boardFull stays true and the game has ended in a tie
+        // If the game has ended, print the game over message
+        // If the game has not ended, do nothing
+        // Hint: use a nested for loop to check each position on the board
+        // Hint: use the break statement to break out of the outer for loop
+        // Hint: use the boardFull variable as the condition for the outer for loop
+        // Hint: use the board[i][j] variable as the condition for the inner for loop
+        // Hint: set boardFull to false inside the inner for loop
+        // Hint: break out of the inner for loop after setting boardFull to false
+        // Hint: after the inner for loop, check if boardFull is still true
+        // Hint: if boardFull is still true, print the game over message
+        // Hint: if boardFull is still true, set gameEnded to true
+        // Hint: if boardFull is still true, break out of the outer for loop
+        // Hint: if boardFull is still true, do nothing
+        // Hint: if boardFull is still true, print the game over message
+        // Hint: if boardFull is still true, set gameEnded to true
+        // Hint: if boardFull is still true, break out of the outer for loop
+        // Hint: if boardFull is still true, do nothing
+        // Hint: if boardFull is still true, print the game over message
+        // Hint: if boardFull is still true, set gameEnded to true
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == ' ') {
@@ -123,22 +147,24 @@ public class TicTacToe {
                     break;
                 }
             }
-            if (!boardFull) break;
+            if (!boardFull) break; // break out of the outer for loop if boardFull is false
         }
 
+        // Print the game over a message if the game has ended in a tie
         if (boardFull) {
             System.out.println("It's a tie!");
-            gameEnded = true;
+            gameEnded = true; // set gameEnded to true to exit the game loop
         }
     }
 
+    // Print the winner of the game (X or O) or print a tie if the game has ended in a tie
     private void printWinner(char player) {
         System.out.println("Player " + player + " wins!");
-        gameEnded = true;
+        gameEnded = true; // set gameEnded to true to exit the game loop
     }
 
     public static void main(String[] args) {
         TicTacToe game = new TicTacToe();
-        game.playGame();
+        game.playGame(); // play the game
     }
 }
