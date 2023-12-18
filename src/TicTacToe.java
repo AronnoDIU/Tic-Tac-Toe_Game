@@ -2,10 +2,10 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class TicTacToe {
-    private char[][] board;
-    private char currentPlayer;
-    private boolean gameEnded;
-    private Random random;
+    private final char[][] board; // 3x3 board
+    private char currentPlayer; // X or O player turn indicator
+    private boolean gameEnded; // true if the game has ended, false otherwise
+    private final Random random; // random number generator
 
     public TicTacToe() {
         board = new char[3][3];
@@ -16,25 +16,29 @@ public class TicTacToe {
         }
         currentPlayer = 'X';
         gameEnded = false;
-        random = new Random();
+        random = new Random(); // random number generator
     }
 
+    // Play the game until it ends (win or tie) and print the winner
     public void playGame() {
-        Scanner scanner = new Scanner(System.in);
-        printBoard();
+        Scanner userInput = new Scanner(System.in);
+        printBoard(); // print the initial board
 
+        // Keep playing until the game ends
         while (!gameEnded) {
+            // If it's the user's turn (X), prompt for input
             if (currentPlayer == 'X') {
-                playerTurn(scanner);
+                playerTurn(userInput);
             } else {
-                aiTurn();
+                aiTurn(); // if it's the computerizing turn (O), make a random move
             }
-            printBoard();
-            checkGameEnd();
+            printBoard(); // print the board after the user's move
+            checkGameEnd(); // check if the game has ended
             currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
         }
     }
 
+    // Prompt the user for a row and column to place their move
     private void playerTurn(Scanner scanner) {
         int row, col;
         do {
