@@ -5,7 +5,7 @@ public class TicTacToe {
     private final char[][] board; // 3x3 board
     private char currentPlayer; // X or O player turn indicator
     private boolean gameEnded; // true if the game has ended, false otherwise
-    private final Random random; //
+    private final Random random;
 
     public TicTacToe() {
         board = new char[3][3];
